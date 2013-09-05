@@ -15,7 +15,7 @@ Ever got really annoyed how much effort it took to add <style> tags for just one
 
 Offcourse, you can also use it to add your own stylesheets and JavaScript files. Anything that normally goes in the head section is fine.
 
-Add to head also features an option under settings to add some text inside <head> on every page. Ideal for favicons, Modern UI start screen icons, or style sheets if you’re too lazy to make a child theme. The favicon on this site is added that way.
+Add to head also features an option under settings to add some text inside <head> on every page. Ideal for favicons, Modern UI start screen icons, or style sheets if you’re too lazy to make a child theme.
 
 Just install the plugin, activate it, make sure it is showing in your post editor by clicking screen options and checking add to head while editing a page, and add stuff!
 
