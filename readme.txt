@@ -1,12 +1,13 @@
-=== Per page add to head ===
+﻿=== Per page add to head ===
 Tags: head, css, favicon
+Author URI: http://evona.nl/over-mij
+Plugin URI: http://evona.nl/plugins/per-page-head
 Requires at least: 3.5
 Tested up to: 3.6
 Stable tag: 0.2 beta
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Author URI: http://evona.nl/over-mij
-Plugin URI: http://evona.nl/plugins/per-page-head
+
 
 This plugin adds content between the head tags for specific WordPress posts, or every WordPress post.
 
