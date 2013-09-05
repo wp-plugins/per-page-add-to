@@ -1,5 +1,9 @@
 ﻿=== Per page add to head ===
+Contributors: Erikvona
+Plugin Name: Per page add to head
 Tags: head, css, favicon
+Author URI: http://erikvona.com/over-mij
+Author: Erik von Asmuth (Erikvona)
 Requires at least: 3.5
 Tested up to: 3.6
 Stable tag: 0.2 beta
