@@ -2,11 +2,11 @@
 Contributors: Erikvona
 Plugin Name: Per page add to head
 Tags: head, css, favicon
-Author URI: http://erikvona.com/over-mij
+Author URI: http://evona.com/over-mij
 Author: Erik von Asmuth (Erikvona)
 Requires at least: 3.5
 Tested up to: 3.6
-Stable tag: 0.2 beta
+Stable tag: 0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,6 +35,9 @@ Installation is plain and simple
 1. You can also add head to all posts! Just use settings -> add head to every page
 
 == Changelog ==
+
+= 0.3 =
+Fixed an issue that could occur when WordPress was hosted inside a subfolder of the domain
 
 = 0.2 beta =
 Initial release for the WordPress plugin repository
