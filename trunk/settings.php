@@ -1,5 +1,7 @@
 <?php
 function perpageath_config(){
+  $request_uri_array = explode("/", $_SERVER['REQUEST_URI']);
+  $currenturl = htmlentities(get_site_url(NULL, "/". $request_uri_array[count($request_uri_array)-2]."/" .end($request_uri_array)));
   $htmlfile = dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'evonapluginconfig'.DIRECTORY_SEPARATOR.'everyheadpage.html';
   ?>
   <div class="wrap">
@@ -29,7 +31,7 @@ function perpageath_config(){
 	  }
 	  fclose($htmlhandle);
 	  ?>
-	  <form method="post" action="<?php echo htmlentities(get_site_url(NULL, $_SERVER["REQUEST_URI"])); ?>">
+	  <form method="post" action="<?php echo $currenturl; ?>">
 	  <textarea style="white-space:pre; width:80%; min-width:600px; height:300px;" name="html"><?php echo $html; ?></textarea>
 	  <?php
 	  submit_button();
