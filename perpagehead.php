@@ -4,7 +4,7 @@
 Plugin Name: Per page head
 Plugin URI: http://www.evona.nl/plugins/per-page-head
 Description: Allows you to add content into the <head> section for a specific page, like custom JS or custom HTML
-Version: 0.2 beta
+Version: 0.3
 Author: Erik von Asmuth
 Author URI: http://evona.nl/over-mij/ (Dutch)
 License: GPLv2
