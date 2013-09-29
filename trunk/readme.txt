@@ -5,8 +5,8 @@ Tags: head, css, favicon
 Author URI: http://evona.com/over-mij
 Author: Erik von Asmuth (Erikvona)
 Requires at least: 3.5
-Tested up to: 3.6
-Stable tag: 0.3
+Tested up to: 3.6.1
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,7 +23,7 @@ Add to head also features an option under settings to add some text inside <head
 
 Just install the plugin, activate it, make sure it is showing in your post editor by clicking screen options and checking add to head while editing a page, and add stuff!
 
-**Warning:** Don't put stuff in the head tags that shouldn't be there! This plugin does not validate anything, and it is really easy to invalidate your HTML by making mistakes in your head tag
+**Warning:** Don't put stuff in the head tags that shouldn't be there! This plugin does not validate anything, and it is really easy to invalidate your HTML by making mistakes in your head tag. Don't forget to add <style> or <script> tags
 
 == Installation ==
 
@@ -35,6 +35,11 @@ Installation is plain and simple
 1. You can also add head to all posts! Just use settings -> add head to every page
 
 == Changelog ==
+
+= 1.0 =
+- Now uses $_SERVER superglobal to locate current page url
+- Now properly preserves whitespace. Whitespace is visible in the source code, as well as in the meta box of the posts
+- Compatibility with Evona Config Manager (to be released, allows you to keep this plugin from removing its config files upon deinstallation).
 
 = 0.3 =
 Fixed an issue that could occur when WordPress was hosted inside a subfolder of the domain

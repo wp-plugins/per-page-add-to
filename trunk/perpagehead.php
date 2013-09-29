@@ -3,8 +3,8 @@
 /*
 Plugin Name: Per page head
 Plugin URI: http://www.evona.nl/plugins/per-page-head
-Description: Allows you to add content into the <head> section for a specific page, like custom JS or custom HTML
-Version: 0.3
+Description: Allows you to add content into the &lt;head&gt; section for a specific page, like custom JS or custom HTML, using post meta. Also allows you to add content for every page, under Settings -> add &lt;head&gt; to every page
+Version: 1.0
 Author: Erik von Asmuth
 Author URI: http://evona.nl/over-mij/ (Dutch)
 License: GPLv2
@@ -35,7 +35,7 @@ function athcallback($post){
   echo '<label for="per-page-ath">';
        _e( "Put your head html here", 'per-page-ath' );
   echo '</label><br/> ';
-  echo '<textarea id="perpageathtextbox" style="width:100%;" name="per-page-ath">'.esc_attr(stripslashes_deep( $value )).'</textarea>';
+  echo '<textarea id="perpageathtextbox" style="width:100%; min-height:120px; white-space: pre-wrap;" name="per-page-ath">'.str_replace('%BREAK%', "\n",stripslashes_deep(esc_attr($value))).'</textarea>';
 }
 
 /**
@@ -79,7 +79,7 @@ function perpageath_save_postdata( $post_id ) {
   /* OK, its safe for us to save the data now. */
 
   // Sanitize user input.
-  $mydata = esc_sql( str_replace(array("\r\n", "\r", "\n"), '',$_POST['per-page-ath']) );
+  $mydata = esc_sql( str_replace(array("\r\n", "\r", "\n"), '%BREAK%',$_POST['per-page-ath']) );
 
   // Update the meta field in the database.
   update_post_meta( $post_id, 'per-page-ath-content', $mydata );
@@ -91,7 +91,7 @@ function perpageath_display(){
 	$pageid = get_queried_object_id();
 	$addtoheadcontent = get_post_meta( $pageid, 'per-page-ath-content', true );
 	if(!empty($addtoheadcontent)){
-		echo stripslashes_deep($addtoheadcontent);
+		echo str_replace('%BREAK%', "\n", stripslashes_deep($addtoheadcontent));
 	}
 	$htmlfile = dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'evonapluginconfig'.DIRECTORY_SEPARATOR.'everyheadpage.html';
 	if(file_exists($htmlfile)&& filesize($htmlfile) > 0){
