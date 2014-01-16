@@ -10,6 +10,7 @@ Author URI: http://evona.nl/about-me/
 License: GPLv2
 Text Domain: per-page-ath
 */
+load_plugin_textdomain('per-page-ath', false, basename( dirname( __FILE__ ) ) . '/languages' );
 
 //Add the meta box
 function perpageathaddbox() {

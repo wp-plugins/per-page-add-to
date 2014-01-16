@@ -37,6 +37,7 @@ Installation is plain and simple
 == Changelog ==
 = 1.1 =
 - Now supports l18n!
+- Includes dutch translation.
 
 = 1.0 =
 - Now uses $_SERVER superglobal to locate current page url
