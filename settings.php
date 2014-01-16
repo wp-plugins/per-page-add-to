@@ -11,23 +11,23 @@ function perpageath_config(){
   $htmlfile = dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'evonapluginconfig'.DIRECTORY_SEPARATOR.'everyheadpage.html';
   ?>
   <div class="wrap">
-  <h2>Insert HTML on every page</h2>
-  <h3>Everything you put in here will be inserted into the &lt;head&gt; tag on every page. Ideal for favicons!</h3>
+  <h2><?php _e('Insert HTML on every page', 'per-page-ath'); ?></h2>
+  <h3><?php _e('Everything you put in here will be inserted into the &lt;head&gt; tag on every page. Ideal for favicons!', 'per-page-ath'); ?></h3>
   <?php
   if(!file_exists($htmlfile)){
 	  if($htmlcreatehandle = fopen($htmlfile, 'x')){
 		  fwrite($htmlcreatehandle, "");
 		  fclose($htmlcreatehandle);
 	  }else{
-		  echo "Error creating ".$htmlfile." ! Is the underlying folder writable?";
+		  printf(__("Error creating %s! Is the underlying folder writable?", 'per-page-ath'), $htmlfile);
 	  }
   }
   if(isset($_POST['html'])){
 	  if($htmlwritehandle = fopen($htmlfile, 'w')){
 		  fwrite($htmlwritehandle, stripslashes_deep($_POST['html']));
 		  fclose($htmlwritehandle);
-		  echo "<p>Succesfully edited ".$htmlfile."!</p>";
-	  }else{echo "Error writing HTML to ".$htmlfile.". Is this file writable?";}
+		  printf(__("Succesfully edited %s!", 'per-page-ath'), $htmlfile);
+	  }else{printf(__("Error writing HTML to %s. Is this file writable?", 'per-page-ath'), $htmlfile);}
   }
   if($htmlhandle = fopen($htmlfile, 'r')){
 	  if(filesize($htmlfile) > 0){
@@ -41,7 +41,7 @@ function perpageath_config(){
 	  <textarea style="white-space:pre; width:80%; min-width:600px; height:300px;" name="html"><?php echo $html; ?></textarea>
 	  <?php
 	  submit_button();
-  }else{echo "Failed reading HTML file".$htmlfile.". Is the file readable?";}
+  }else{printf(__("Error reading HTML from file %s. Is this file readable?", 'per-page-ath'), $htmlfile);}
   echo "</form></div>";
 }
 ?>

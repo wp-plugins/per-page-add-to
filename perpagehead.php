@@ -4,17 +4,19 @@
 Plugin Name: Per page head
 Plugin URI: http://www.evona.nl/plugins/per-page-head
 Description: Allows you to add content into the &lt;head&gt; section for a specific page, like custom JS or custom HTML, using post meta. Also allows you to add content for every page, under Settings -> add &lt;head&gt; to every page
-Version: 1.0
+Version: 1.1
 Author: Erik von Asmuth
-Author URI: http://evona.nl/over-mij/ (Dutch)
+Author URI: http://evona.nl/about-me/
 License: GPLv2
+Text Domain: per-page-ath
 */
 
 //Add the meta box
 function perpageathaddbox() {
+	$addtohead = __('Add to head', 'per-page-ath');
     $screens = array( 'post', 'page' );
     foreach ( $screens as $screen ) {
-        add_meta_box( 'per-page-ath', 'Add to head', 'athcallback', $screen, 'normal',
+        add_meta_box( 'per-page-ath', $addtohead, 'athcallback', $screen, 'normal',
          'default', null );
     }
 }
@@ -100,7 +102,7 @@ function perpageath_display(){
 		  	fclose($htmlhandle);
 			echo $html;
 		 }else{
-			 echo "<!-- Error reading ".$htmlfile."! Is the file readable? -->";
+			 echo "<!-- ".printf( __( 'Error reading config file %s! Is this file readable by the webserver?', 'per-page-ath' ), $htmlfile )." -->";
 		 }
 	}
 }
@@ -109,7 +111,8 @@ add_action('wp_head', 'perpageath_display');
 //Create a menu
 //Load in the option page
 function EvonaCreateATHMenu() {
-	add_options_page( 'Add &lt;head&gt; to every page', 'Add &lt;head&gt; to every page', 'manage_options', 'perpageath-every-page', 'PerPageATHSettings' );
+	$menuname = __('Add &lt;head&gt; to every page', 'per-page-ath');
+	add_options_page( $menuname, $menuname, 'manage_options', 'perpageath-every-page', 'PerPageATHSettings' );
 }
 
 function PerPageATHSettings(){
