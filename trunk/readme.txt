@@ -35,6 +35,10 @@ Installation is plain and simple
 1. You can also add head to all posts! Just use settings -> add head to every page
 
 == Changelog ==
+
+= 1.1.1 =
+- Includes spanish translation thanks to Andrew Kurtis from WebHostingHub
+
 = 1.1 =
 - Now supports l18n!
 - Includes dutch translation.
