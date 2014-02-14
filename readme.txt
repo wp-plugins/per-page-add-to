@@ -2,7 +2,7 @@
 Contributors: Erikvona
 Plugin Name: Per page add to head
 Tags: head, css, favicon
-Author URI: http://evona.com/over-mij
+Author URI: http://evona.nl/over-mij
 Author: Erik von Asmuth (Erikvona)
 Requires at least: 3.5
 Tested up to: 3.8
