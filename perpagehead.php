@@ -4,7 +4,7 @@
 Plugin Name: Per page head
 Plugin URI: http://www.evona.nl/plugins/per-page-head
 Description: Allows you to add content into the &lt;head&gt; section for a specific page, like custom JS or custom HTML, using post meta. Also allows you to add content for every page, under Settings -> add &lt;head&gt; to every page
-Version: 1.1.1
+Version: 1.1.2
 Author: Erik von Asmuth
 Author URI: http://evona.nl/about-me/
 License: GPLv2
@@ -91,11 +91,7 @@ add_action( 'save_post', 'perpageath_save_postdata' );
 //Now that's done. Let's add the meta field to the head
 
 function perpageath_display(){
-	$pageid = get_queried_object_id();
-	$addtoheadcontent = get_post_meta( $pageid, 'per-page-ath-content', true );
-	if(!empty($addtoheadcontent)){
-		echo str_replace('%BREAK%', "\n", stripslashes_deep($addtoheadcontent));
-	}
+	$pageid = get_queried_object_id();	
 	$htmlfile = dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'evonapluginconfig'.DIRECTORY_SEPARATOR.'everyheadpage.html';
 	if(file_exists($htmlfile)&& filesize($htmlfile) > 0){
 		if($htmlhandle = fopen($htmlfile, 'r')){
@@ -106,8 +102,13 @@ function perpageath_display(){
 			 echo "<!-- ".printf( __( 'Error reading config file %s! Is this file readable by the webserver?', 'per-page-ath' ), $htmlfile )." -->";
 		 }
 	}
+	$addtoheadcontent = get_post_meta( $pageid, 'per-page-ath-content', true );
+	if(!empty($addtoheadcontent)){
+		echo str_replace('%BREAK%', "\n", stripslashes_deep($addtoheadcontent));
+	}
+
 }
-add_action('wp_head', 'perpageath_display');
+add_action('wp_head', 'perpageath_display', 1000);
 
 //Create a menu
 //Load in the option page
