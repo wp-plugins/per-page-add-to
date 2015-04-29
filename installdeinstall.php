@@ -11,6 +11,9 @@ function PerPageATHInstallStep2(){
 		  fclose($htmlcreatehandle);
 	  }
   }
+  $roleobject = $wp_roles->get_role('administrator');
+  $roleobject->add_cap('add-to-head');
+  add_option('ppath_types_allowed', array('post', 'page'), '', 'no');
 }
 function PerPageATHDeinstallStep2(){
 	$configdir = dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'evonapluginconfig';
@@ -20,6 +23,8 @@ function PerPageATHDeinstallStep2(){
 	if(empty($scanned_directory)){
 		rmdir($configdir);
 	}
+	delete_option('ppath_roles_allowed');
+	delete_option('ppath_types_allowed');
 }
 function PerpageathConfigMgrDeleteConfigfile($filename){
 	$configdir = dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'evonapluginconfig';
