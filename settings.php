@@ -126,7 +126,7 @@ function perpageath_config(){
   <table>
   	<?php
 		foreach($wp_roles->get_names() as $role_slug => $role_name){
-			?><tr><td><?php echo $role_name;?></td><td><input type="checkbox" name="rolesallowed[]" value="<?php echo $role_slug; ?>" <?php if(in_array($role_slug, $rolesallowednow)){ echo ' checked="checked"';} if($role_slug == 'administrator'){echo ' disabled="disabled"';}?> /></td></tr>
+			?><tr><td><?php echo translate_user_role($role_name);?></td><td><input type="checkbox" name="rolesallowed[]" value="<?php echo $role_slug; ?>" <?php if(in_array($role_slug, $rolesallowednow)){ echo ' checked="checked"';} if($role_slug == 'administrator'){echo ' disabled="disabled"';}?> /></td></tr>
             <?php	
 		}
 	?>
