@@ -117,9 +117,9 @@ function perpageath_config(){
   <?php
   	if(isset($rolesupdated)){
 		if($rolesupdated){
-			_e('Succesfully updated role support', 'per-page-ath');
+			_e('Succesfully updated user role support', 'per-page-ath');
 		}else{
-			_e('Role support not updated', 'per-page-ath');
+			_e('User role support not updated', 'per-page-ath');
 		}
 	}
   ?>
@@ -137,9 +137,9 @@ function perpageath_config(){
   <?php
   	if(isset($typesupdated)){
 		if($typesupdated){
-			_e('Succesfully updated type support', 'per-page-ath');
+			_e('Succesfully updated post type support', 'per-page-ath');
 		}else{
-			_e('type support not updated', 'per-page-ath');
+			_e('Post type support not updated', 'per-page-ath');
 		}
 	}
   ?>
