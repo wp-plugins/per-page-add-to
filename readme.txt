@@ -6,7 +6,7 @@ Author URI: http://evona.nl/over-mij
 Author: Erik von Asmuth (Erikvona)
 Requires at least: 3.5
 Tested up to: 4.2.1
-Stable tag: 1.2
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,6 +35,8 @@ Installation is plain and simple
 1. You can also add head to all posts! Just use settings -> per page add to head
 
 == Changelog ==
+= 1.2.1 =
+- Fixed a critical installation error introduced in version 1.2
 
 = 1.2 =
 - Added support for user roles: you can prevent certain user roles from editing the head segment. Note: administrators can't be excluded, and edit the "add head to every page" segment.

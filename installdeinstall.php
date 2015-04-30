@@ -11,6 +11,7 @@ function PerPageATHInstallStep2(){
 		  fclose($htmlcreatehandle);
 	  }
   }
+  global $wp_roles;
   $roleobject = $wp_roles->get_role('administrator');
   $roleobject->add_cap('add-to-head');
   add_option('ppath_types_allowed', array('post', 'page'), '', 'no');
